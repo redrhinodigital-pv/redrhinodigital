@@ -117,7 +117,7 @@ const HeroSection = () => {
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
                 <Zap className="w-5 h-5 text-primary" />
               </div>
-              <h3 className="font-display font-bold text-2xl text-foreground mb-1">30+</h3>
+              <h3 className="font-display font-bold text-2xl text-foreground mb-1">20+</h3>
               <p className="text-sm text-muted-foreground font-medium">Projects Delivered</p>
             </div>
 
