@@ -3,18 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Preconnect to domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"></noscript>
+    
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="canonical" href="https://redrhinodigital.in/" />
-    <title>Red Rhino Digital | Digital Marketing, AI & IT Solutions Chennai</title>
-    <meta name="description" content="Leading digital agency in Chennai offering marketing, AI automation, website development & branding services." />
+    <title>Red Rhino Digital | Digital Marketing Chennai</title>
+    <meta name="description" content="Top digital marketing agency in Chennai offering SEO, AI automation, website development & branding services." />
     <meta name="keywords" content="Digital Marketing Chennai, AI Automation India, Website Development Chennai, Social Media Marketing India" />
     <meta name="author" content="Red Rhino Digital" />
 
-    <meta property="og:title" content="Red Rhino Digital | Digital Marketing, AI & IT Solutions Chennai" />
-    <meta property="og:description" content="Leading digital agency in Chennai offering marketing, AI automation, website development & branding services." />
+    <meta property="og:title" content="Red Rhino Digital | Digital Marketing Chennai" />
+    <meta property="og:description" content="Top digital marketing agency in Chennai offering SEO, AI automation, website development & branding services." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://redrhinodigital.in/" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
@@ -22,6 +25,34 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@RedRhinoDigital" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXX');
+    </script>
+
+    <!-- Meta Pixel Code Placeholder -->
+    <!--
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'XXXXXXXXXXXXXXXX');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXXX&ev=PageView&noscript=1"
+    /></noscript>
+    -->
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -44,7 +75,9 @@
       },
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "No 22 Tiruveedhi Amman Koil Street, Aminijikarai",
         "addressLocality": "Chennai",
+        "postalCode": "600029",
         "addressCountry": "IN"
       },
       "sameAs": [

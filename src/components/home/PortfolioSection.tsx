@@ -8,7 +8,7 @@ const projects = [
     description: "Designed modern menu and branding visuals",
     result: "Improved brand experience and engagement",
     image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop",
-    link: "#",
+    link: "https://drive.google.com/file/d/1p7JN1RCJoCd9QLjA4BwirzLu0k_RQ_uW/view?usp=sharing",
   },
   {
     title: "Success Root Technologies",
@@ -68,6 +68,9 @@ const PortfolioSection = () => {
                 <img 
                   src={project.image} 
                   alt={project.title} 
+                  width={800}
+                  height={600}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute top-4 left-4 z-20">
@@ -94,6 +97,7 @@ const PortfolioSection = () => {
                   href={project.link}
                   target={project.link !== "#" ? "_blank" : "_self"}
                   rel="noopener noreferrer"
+                  aria-label={`View project details for ${project.title}`}
                   className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-background border border-border text-foreground font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
                 >
                   View Project

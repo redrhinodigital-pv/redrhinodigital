@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/redrhino-logo.png";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -37,7 +37,7 @@ const Header = () => {
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Red Rhino Digital" className="h-12 w-auto" />
+            <img src={logo} alt="Red Rhino Digital" width={84} height={84} className="h-[84px] w-auto" />
             <div className="hidden sm:block">
               <span className="font-display font-bold text-xl text-foreground">
                 Red Rhino

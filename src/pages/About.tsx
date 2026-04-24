@@ -1,8 +1,10 @@
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
 import { Target, Eye, Heart, Award, Instagram, Linkedin, Github, CheckCircle2 } from "lucide-react";
+import vigneshImg from "@/assets/vignesh.jpeg";
 
 const values = [
   {
@@ -42,6 +44,11 @@ const teamMembers = [
 const About = () => {
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>About Us | Red Rhino Digital - Leading Digital Agency in Chennai</title>
+        <meta name="description" content="Learn more about Red Rhino Digital, our mission, values, and the expert team driving digital transformation and growth for businesses across India." />
+        <link rel="canonical" href="https://redrhinodigital.in/about" />
+      </Helmet>
       <Header />
       <main>
         {/* Hero Section */}
@@ -253,8 +260,11 @@ const About = () => {
                   <div className="w-48 h-48 md:w-64 md:h-64 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-glow relative overflow-hidden group">
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
                     <img
-                      src="/src/assets/vignesh.jpeg"
+                      src={vigneshImg}
                       alt="Vignesh G"
+                      width={400}
+                      height={400}
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       onError={(e) => {
                         e.currentTarget.src = "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop";
@@ -265,7 +275,7 @@ const About = () => {
 
                   <div className="text-center md:text-left">
                     <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-2">
-                      Vignesh G
+                      VIGNESH G
                     </h3>
                     <p className="text-primary font-semibold text-lg mb-6">
                       Founder & Managing Director

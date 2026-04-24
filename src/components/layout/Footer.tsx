@@ -19,7 +19,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-5">
             <Link to="/" className="flex items-center gap-3">
-              <img src={logo} alt="Red Rhino Digital" className="h-12 w-auto" />
+              <img src={logo} alt="Red Rhino Digital" width={84} height={84} loading="lazy" className="h-[84px] w-auto" />
               <div>
                 <span className="font-display font-bold text-xl text-white">
                   Red Rhino
@@ -30,8 +30,7 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-white/60 text-sm leading-relaxed">
-              Chennai-based digital agency providing result-driven digital marketing,
-              IT consulting, and web development services across India.
+              Red Rhino Digital is a Chennai-based full-service digital agency delivering result-driven marketing, reliable IT services, and high-performance web development solutions to businesses across India.
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <a
@@ -111,7 +110,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 "Digital Marketing",
-                "IT Consulting",
+                "IT Services",
                 "Web Development",
                 "Branding & Design",
               ].map((service) => (

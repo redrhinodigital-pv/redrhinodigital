@@ -1,19 +1,20 @@
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
-import { 
-  Megaphone, 
-  Monitor, 
-  Code, 
-  Instagram, 
-  Target, 
-  Search, 
-  Palette, 
-  Video, 
-  Settings, 
-  HeadphonesIcon, 
-  Zap, 
+import {
+  Megaphone,
+  Monitor,
+  Code,
+  Instagram,
+  Target,
+  Search,
+  Palette,
+  Video,
+  Settings,
+  HeadphonesIcon,
+  Zap,
   ShoppingCart,
   Globe,
   FileText,
@@ -129,6 +130,11 @@ const services = [
 const Services = () => {
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Our Services | Digital Marketing, AI & Web Development | Red Rhino Digital</title>
+        <meta name="description" content="Explore our premium digital marketing, IT Services, website development, and AI automation services designed to scale your business." />
+        <link rel="canonical" href="https://redrhinodigital.in/services" />
+      </Helmet>
       <Header />
       <main>
         {/* Hero Section */}
@@ -152,7 +158,7 @@ const Services = () => {
                 Comprehensive <span className="text-gradient">Digital Solutions</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                From strategy to execution, we provide end-to-end digital services 
+                From strategy to execution, we provide end-to-end digital services
                 to help your business thrive online.
               </p>
             </motion.div>
@@ -181,7 +187,7 @@ const Services = () => {
                       )}
                       <service.icon className="w-10 h-10 text-white relative z-10" />
                     </div>
-                    
+
                     <div className="flex items-center gap-3 mb-6 justify-center flex-wrap">
                       <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground">
                         {service.title}
@@ -192,7 +198,7 @@ const Services = () => {
                         </span>
                       )}
                     </div>
-                    
+
                     <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                       {service.description}
                     </p>
@@ -200,32 +206,31 @@ const Services = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {service.subServices.map((sub, subIndex) => (
-                        <motion.div
-                          key={sub.name}
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.4, delay: subIndex * 0.05 }}
-                          className={`group p-6 rounded-2xl bg-card border ${
-                            service.highlight 
-                              ? 'border-purple-200/50 shadow-glow hover:border-purple-400' 
-                              : 'border-border shadow-card hover:border-primary/50'
+                      <motion.div
+                        key={sub.name}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: subIndex * 0.05 }}
+                        className={`group p-6 rounded-2xl bg-card border ${service.highlight
+                            ? 'border-purple-200/50 shadow-glow hover:border-purple-400'
+                            : 'border-border shadow-card hover:border-primary/50'
                           } hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 relative overflow-hidden`}
-                        >
-                          {service.highlight && (
-                            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                          )}
-                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} bg-opacity-10 flex items-center justify-center mb-4 relative z-10`} style={{ background: `linear-gradient(135deg, hsl(var(--primary) / 0.1) 0%, hsl(var(--primary) / 0.05) 100%)` }}>
-                            <sub.icon className={`w-6 h-6 ${service.highlight ? 'text-purple-500' : 'text-primary'}`} />
-                          </div>
-                          <h3 className={`font-semibold text-foreground mb-2 ${service.highlight ? 'group-hover:text-purple-600' : 'group-hover:text-primary'} transition-colors relative z-10`}>
-                            {sub.name}
-                          </h3>
-                          <p className="text-sm text-muted-foreground leading-relaxed relative z-10">
-                            {sub.desc}
-                          </p>
-                        </motion.div>
-                      ))}
+                      >
+                        {service.highlight && (
+                          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        )}
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} bg-opacity-10 flex items-center justify-center mb-4 relative z-10`} style={{ background: `linear-gradient(135deg, hsl(var(--primary) / 0.1) 0%, hsl(var(--primary) / 0.05) 100%)` }}>
+                          <sub.icon className={`w-6 h-6 ${service.highlight ? 'text-purple-500' : 'text-primary'}`} />
+                        </div>
+                        <h3 className={`font-semibold text-foreground mb-2 ${service.highlight ? 'group-hover:text-purple-600' : 'group-hover:text-primary'} transition-colors relative z-10`}>
+                          {sub.name}
+                        </h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed relative z-10">
+                          {sub.desc}
+                        </p>
+                      </motion.div>
+                    ))}
                   </div>
                 </motion.div>
               ))}

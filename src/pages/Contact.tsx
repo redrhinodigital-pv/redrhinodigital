@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -7,30 +8,38 @@ import { useToast } from "@/hooks/use-toast";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import XIcon from "@/components/icons/XIcon";
 import PinterestIcon from "@/components/icons/PinterestIcon";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
+const formSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  phone: z.string().min(10, "Phone number must be at least 10 digits"),
+  email: z.string().email("Please enter a valid email address"),
+  message: z.string().min(10, "Message must be at least 10 characters")
+});
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    message: "",
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      phone: "",
+      email: "",
+      message: "",
+    },
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const whatsappMessage = encodeURIComponent("Hi, I'm interested in your services. Can we discuss my requirements?");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -39,11 +48,11 @@ const Contact = () => {
         },
         body: JSON.stringify({
           access_key: 'f70926e0-d203-4f9e-9bdd-f7bb4d2c5974',
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          message: formData.message,
-          subject: `New Enquiry from ${formData.name}`,
+          name: values.name,
+          phone: values.phone,
+          email: values.email,
+          message: values.message,
+          subject: `New Enquiry from ${values.name}`,
         }),
       });
 
@@ -54,7 +63,7 @@ const Contact = () => {
           title: "Message Sent! 🎉",
           description: "Thank you for contacting us. We'll get back to you within 24 hours.",
         });
-        setFormData({ name: "", phone: "", email: "", message: "" });
+        reset();
       } else {
         throw new Error(result.message || 'Failed to send message');
       }
@@ -65,8 +74,6 @@ const Contact = () => {
         description: "Failed to send message. Please try again or contact us via WhatsApp.",
         variant: "destructive",
       });
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -77,6 +84,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Contact Us | Red Rhino Digital - Let's build something powerful together</title>
+        <meta name="description" content="Get in touch with Red Rhino Digital for a free consultation. Contact us via phone, WhatsApp, or email to discuss your digital growth strategy." />
+        <link rel="canonical" href="https://redrhinodigital.in/contact" />
+      </Helmet>
       <Header />
       <main>
         {/* Hero Section */}
@@ -103,8 +115,8 @@ const Contact = () => {
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
                 Ready to grow your business? Get in touch with us for a free consultation and let's map out your digital growth strategy.
               </p>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
@@ -137,7 +149,7 @@ const Contact = () => {
                   Let's Start a Conversation
                 </h2>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
-                  Have a project in mind? We'd love to hear about it. Contact us 
+                  Have a project in mind? We'd love to hear about it. Contact us
                   using any of the methods below, or fill out the form.
                 </p>
 
@@ -178,8 +190,24 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground mb-0.5">Location</p>
-                      <p className="font-semibold text-foreground text-lg">Chennai, India</p>
+                      <p className="font-semibold text-foreground text-sm">
+                        Red Rhino Digital, No 22 Tiruveedhi Amman Koil Street,Aminijikarai, Chennai, Tamil Nadu 600029
+                      </p>
                     </div>
+                  </div>
+
+                  <div className="mt-8 rounded-2xl overflow-hidden border border-border h-64 shadow-sm relative">
+                    <iframe
+                      title="Red Rhino Digital Location"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.536100862024!2d80.2085352!3d13.0645062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265f6c8d7650f%3A0xc3b83921bfd8c9a3!2sRed%20Rhino%20Digital!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen={true}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="absolute inset-0 grayscale hover:grayscale-0 transition-all duration-500"
+                    ></iframe>
                   </div>
                 </div>
 
@@ -244,15 +272,15 @@ const Contact = () => {
               >
                 <div className="p-8 md:p-10 rounded-3xl bg-card border border-border shadow-elevated relative overflow-hidden group hover:border-primary/30 transition-colors">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-700" />
-                  
+
                   <h3 className="text-2xl font-display font-bold text-foreground mb-2 relative z-10">
                     Send Us a Message
                   </h3>
                   <p className="text-muted-foreground mb-8 relative z-10">
                     Fill out the form and we'll get back to you within 24 hours.
                   </p>
-                  
-                  <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 relative z-10">
                     <div className="space-y-5">
                       <div>
                         <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
@@ -261,14 +289,12 @@ const Contact = () => {
                         <input
                           type="text"
                           id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          required
+                          {...register("name")}
                           maxLength={100}
-                          className="w-full h-14 px-5 rounded-2xl border border-border bg-background/50 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm"
+                          className={`w-full h-14 px-5 rounded-2xl border bg-background/50 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 transition-all shadow-sm ${errors.name ? 'border-destructive focus:ring-destructive/50' : 'border-border focus:ring-primary/50 focus:border-primary'}`}
                           placeholder="Enter your name"
                         />
+                        {errors.name && <p className="text-destructive text-xs mt-1 font-medium">{errors.name.message}</p>}
                       </div>
 
                       <div>
@@ -278,14 +304,12 @@ const Contact = () => {
                         <input
                           type="tel"
                           id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          required
+                          {...register("phone")}
                           maxLength={15}
-                          className="w-full h-14 px-5 rounded-2xl border border-border bg-background/50 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm"
+                          className={`w-full h-14 px-5 rounded-2xl border bg-background/50 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 transition-all shadow-sm ${errors.phone ? 'border-destructive focus:ring-destructive/50' : 'border-border focus:ring-primary/50 focus:border-primary'}`}
                           placeholder="Enter your phone number"
                         />
+                        {errors.phone && <p className="text-destructive text-xs mt-1 font-medium">{errors.phone.message}</p>}
                       </div>
 
                       <div>
@@ -295,14 +319,12 @@ const Contact = () => {
                         <input
                           type="email"
                           id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          required
+                          {...register("email")}
                           maxLength={255}
-                          className="w-full h-14 px-5 rounded-2xl border border-border bg-background/50 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm"
+                          className={`w-full h-14 px-5 rounded-2xl border bg-background/50 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 transition-all shadow-sm ${errors.email ? 'border-destructive focus:ring-destructive/50' : 'border-border focus:ring-primary/50 focus:border-primary'}`}
                           placeholder="Enter your email"
                         />
+                        {errors.email && <p className="text-destructive text-xs mt-1 font-medium">{errors.email.message}</p>}
                       </div>
 
                       <div>
@@ -311,15 +333,13 @@ const Contact = () => {
                         </label>
                         <textarea
                           id="message"
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                          required
+                          {...register("message")}
                           maxLength={1000}
                           rows={4}
-                          className="w-full px-5 py-4 rounded-2xl border border-border bg-background/50 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none shadow-sm"
+                          className={`w-full px-5 py-4 rounded-2xl border bg-background/50 backdrop-blur-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 transition-all resize-none shadow-sm ${errors.message ? 'border-destructive focus:ring-destructive/50' : 'border-border focus:ring-primary/50 focus:border-primary'}`}
                           placeholder="Tell us about your project or requirements"
                         />
+                        {errors.message && <p className="text-destructive text-xs mt-1 font-medium">{errors.message.message}</p>}
                       </div>
                     </div>
 
