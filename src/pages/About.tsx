@@ -96,7 +96,7 @@ const About = () => {
                   <p>
                     We specialize in <strong className="text-foreground">Digital Marketing</strong>,
                     <strong className="text-foreground"> Video Production, Design & Branding, Web Development, AI & Automation</strong>
-                    <strong className="text-foreground"> IT Services</strong> delivering complete end-to-end solutions for business growth.
+                    <strong className="text-foreground"> and IT Services</strong> delivering complete end-to-end solutions for business growth.
                   </p>
                   <p>We don’t just market your brand — we build systems that generate leads, improve visibility, and accelerate growth.</p>
                   <p>Our mission is simple:</p>
@@ -120,12 +120,12 @@ const About = () => {
                     <div className="absolute inset-0 bg-grid-pattern opacity-5" />
                     <div className="text-center p-8 relative z-10">
                       <div className="text-6xl md:text-7xl font-display font-bold text-gradient mb-2 animate-pulse-slow">
-                        30+
+                        20+
                       </div>
                       <p className="text-lg font-medium text-muted-foreground">Projects Completed</p>
                       <div className="mt-8 grid grid-cols-2 gap-6">
                         <div className="glass p-4 rounded-xl border border-border">
-                          <div className="text-3xl font-display font-bold text-foreground mb-1">20+</div>
+                          <div className="text-3xl font-display font-bold text-foreground mb-1">15+</div>
                           <p className="text-xs font-semibold text-primary uppercase tracking-wider">Happy Clients</p>
                         </div>
                         <div className="glass p-4 rounded-xl border border-border">
