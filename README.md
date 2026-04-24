@@ -1,73 +1,81 @@
-# Welcome to your Lovable project
+🦏 Red Rhino Digital
 
-## Project info
+🚀 Your AI-Powered Digital Growth Partner
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Red Rhino Digital is a modern digital agency focused on helping businesses grow using Digital Marketing, AI Solutions, Branding, and Video Production.
 
-## How can I edit this code?
+We combine creativity with data-driven strategies to deliver powerful results for brands across industries.
 
-There are several ways of editing your application.
+🌐 Website 👉 https://www.redrhinodigital.in
 
-**Use Lovable**
+👨‍💼 Founder Vignesh G Founder & Managing Director
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+🚀 Our Services 📈 Digital Marketing Social Media Marketing
 
-Changes made via Lovable will be committed automatically to this repo.
+Performance Marketing (Meta Ads, Google Ads)
 
-**Use your preferred IDE**
+SEO Optimization
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Lead Generation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+🎬 Video Production Ad Shoots
 
-Follow these steps:
+Product Videos
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Reels & Shorts Creation
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Brand Storytelling
 
-# Step 3: Install the necessary dependencies.
-npm i
+🎨 Branding Logo Design
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Brand Identity
 
-**Edit a file directly in GitHub**
+Creative Strategy
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+UI/UX Design
 
-**Use GitHub Codespaces**
+🤖 AI Solutions AI Chatbots
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Automation Systems
 
-## What technologies are used for this project?
+Business Intelligence
 
-This project is built with:
+Custom AI Tools
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+🎯 Our Mission To empower businesses with innovative digital and AI-driven solutions that accelerate growth and build strong brand presence.
 
-## How can I deploy this project?
+💡 Why Choose Us? ✔️ Data-Driven Strategy ✔️ Creative Excellence ✔️ AI Integration ✔️ Result-Oriented Approach ✔️ Startup to Enterprise Support
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+📍 Location Chennai, India 🇮🇳
 
-## Can I connect a custom domain to my Lovable project?
+📞 Contact
 
-Yes, you can!
+📧 Email: info@redrhinodigital.in
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+📱 Phone: +91 94999 12508
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+🔗 Connect With Us Instagram: https://www.instagram.com/redrhinodigital
+
+Facebook: https://www.facebook.com/redrhinodigital
+
+LinkedIn: https://www.linkedin.com/company/redrhinodigital
+
+Pinterest: https://www.pinterest.com/redrhinodigital
+
+X (Twitter): https://x.com/redrhinodigital
+
+⚡ Tech Stack HTML, CSS, JavaScript
+
+React / Vite
+
+Tailwind CSS
+
+Supabase
+
+AI Tools & APIs
+
+🛠️ Getting Started npm install npm run dev 📄 License
+
+© 2026 Red Rhino Digital. All rights reserved.
+
+🔥 Built with passion to grow brands digitally.
