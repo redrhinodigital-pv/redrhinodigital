@@ -5,21 +5,21 @@ const stats = [
   {
     id: 1,
     title: "Projects Completed",
-    value: " 30+",
+    value: " 20+",
     icon: CheckCircle2,
     gradient: "from-blue-500 to-indigo-600"
   },
   {
     id: 2,
     title: "Happy Clients",
-    value: "20+",
+    value: "15+",
     icon: Users,
     gradient: "from-rose-500 to-red-600"
   },
   {
     id: 3,
     title: "Industries Served",
-    value: "5+",
+    value: "3+",
     icon: Building2,
     gradient: "from-emerald-500 to-teal-600"
   }
